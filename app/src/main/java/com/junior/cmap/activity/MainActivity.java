@@ -3,7 +3,6 @@ package com.junior.cmap.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void open_window(){
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, CadastroActivity.class);
         startActivity(intent);
     }
 }

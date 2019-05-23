@@ -7,21 +7,20 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.junior.cmap.R;
-import com.junior.cmap.fragments.register.PersonalDataFragment;
+import com.junior.cmap.fragments.register.AlunoFragment;
 
-public class RegisterActivity extends AppCompatActivity {
+public class CadastroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        Log.i("click","entrou na register");
+        setContentView(R.layout.activity_cadastro);
         getSupportActionBar().setTitle("Registrar-se");
-        Fragment step_1 = PersonalDataFragment.newInstance();
-        openFragment(step_1);
+        Fragment aluno = AlunoFragment.newInstance();
+        trocaTela(aluno);
     }
 
-    public void openFragment(Fragment fragment) {
+    public void trocaTela(Fragment fragment) {
         //Declaração e inicialização da transação
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //Substitui o fragment colocado dentro do container

@@ -1,6 +1,30 @@
 <resources>
     <string name="app_name">CMAP</string>
 
+    <array name="grau_parentesco">
+        <item>Selecione o Grau de Parentesco</item>
+        <item>Avó</item>
+        <item>Avô</item>
+        <item>Irmão(a)</item>
+        <item>Madastra</item>
+        <item>Mãe</item>
+        <item>Outro</item>
+        <item>Padastro</item>
+        <item>Pai</item>
+        <item>Primo(a)</item>
+        <item>Sobrinho(a)</item>
+        <item>Tia</item>
+        <item>Tio</item>
+    </array>
+
+    <array name="nivel">
+        <item>Selecione o Nível Escolar</item>
+        <item>Infantil</item>
+        <item>Fundamental</item>
+        <item>Integrado</item>
+        <item>Médio</item>
+    </array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
