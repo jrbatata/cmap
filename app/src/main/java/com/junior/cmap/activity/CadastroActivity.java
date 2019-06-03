@@ -1,5 +1,6 @@
 package com.junior.cmap.activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -24,10 +25,15 @@ public class CadastroActivity extends AppCompatActivity {
         //Declaração e inicialização da transação
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //Substitui o fragment colocado dentro do container
-        transaction.replace(R.id.container, fragment);
+        transaction.replace(R.id.container, fragment, "Aluno");
         //Adiciona a transação na pilha
         transaction.addToBackStack(null);
         //Fecha a transação
         transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(CadastroActivity.this, MainActivity.class));
     }
 }

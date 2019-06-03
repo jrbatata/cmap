@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "146643232499",
+    "firebase_url": "https://cmap-68e22.firebaseio.com",
+    "project_id": "cmap-68e22",
+    "storage_bucket": "cmap-68e22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146643232499:android:f615e3ea15b2d4a6",
+        "android_client_info": {
+          "package_name": "com.junior.cmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146643232499-3hjukavib5tq4pal9llrhgl1rdu83quo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.junior.cmap",
+            "certificate_hash": "4413f5e70d30c34be8dc3e772d8eec1492b66bc4"
+          }
+        },
+        {
+          "client_id": "146643232499-h0pienbnrqp7io9d0s72dk929a9didbm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr-Cau6wl_UIKYz1YaMuCvkCxwsAHq69M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146643232499-h0pienbnrqp7io9d0s72dk929a9didbm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

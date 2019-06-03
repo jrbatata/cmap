@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="0dp">
+
+    <ImageView
+        android:id="@+id/custom_loading_imageView"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:src="@drawable/loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title of the loading bar"
+        android:textStyle="bold"
+        android:textColor="@color/gray"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/custom_loading_imageView"
+        app:layout_constraintStart_toStartOf="@+id/custom_loading_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/custom_loading_imageView" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description of the loading bar"
+        android:textColor="@color/gray"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+</android.support.constraint.ConstraintLayout>

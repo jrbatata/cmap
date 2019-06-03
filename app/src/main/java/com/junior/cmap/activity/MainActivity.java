@@ -9,7 +9,6 @@ import android.widget.Button;
 import com.junior.cmap.R;
 
 public class MainActivity extends AppCompatActivity {
-    private String tag = "click";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +19,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
         getSupportActionBar().hide();
-        Button buttonRegister = (Button) findViewById(R.id.buttonRegister);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        Button cadastro = (Button) findViewById(R.id.buttonRegister);
+        Button login = (Button) findViewById(R.id.buttonLogin);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirTela(LoginActivity.class);
+            }
+        });
+        cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                open_window();
+                abrirTela(CadastroActivity.class);
             }
         });
     }
 
-    public void open_window(){
-        Intent intent = new Intent(this, CadastroActivity.class);
+    public void abrirTela(Class tela){
+        Intent intent = new Intent(this, tela);
         startActivity(intent);
     }
 }

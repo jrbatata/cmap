@@ -88,7 +88,7 @@
         </android.support.constraint.ConstraintLayout>
 
         <EditText
-            android:id="@+id/nome"
+            android:id="@+id/textNome"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
@@ -105,7 +105,7 @@
             tools:targetApi="o" />
 
         <EditText
-            android:id="@+id/matricula"
+            android:id="@+id/textMatricula"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
@@ -122,24 +122,7 @@
             tools:targetApi="o" />
 
         <EditText
-            android:id="@+id/cpf"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/lightgray"
-            android:ems="10"
-            android:hint="CPF"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="@android:color/black"
-            tools:targetApi="o" />
-
-        <EditText
-            android:id="@+id/dataNasc"
+            android:id="@+id/textData"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
@@ -156,7 +139,7 @@
             tools:targetApi="o" />
 
         <Spinner
-            android:id="@+id/nivel"
+            android:id="@+id/spinNivel"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
@@ -187,7 +170,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/masculino"
+                android:id="@+id/radioMasculino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorPrimary"
@@ -196,7 +179,7 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/feminino"
+                android:id="@+id/radioFeminino"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -206,7 +189,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/continuar"
+            android:id="@+id/buttonContinuar"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="25dp"

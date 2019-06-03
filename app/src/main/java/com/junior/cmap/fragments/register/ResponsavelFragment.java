@@ -2,7 +2,6 @@ package com.junior.cmap.fragments.register;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -33,8 +32,18 @@ public class ResponsavelFragment extends Fragment {
     }
 
     public void init(View view){
-        Button continuar = (Button) view.findViewById(R.id.continuar);
-        continuar.setOnClickListener(new View.OnClickListener() {
+        Button buttonContinuar = (Button) view.findViewById(R.id.buttonContinuar);
+        Button buttonVoltar = (Button) view.findViewById(R.id.buttonVoltar);
+
+        buttonVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment aluno = AlunoFragment.newInstance();
+                trocaTela(aluno);
+            }
+        });
+
+        buttonContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment usuario = UsuarioFragment.newInstance();

@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -20,34 +21,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                app:spb_currentStateNumber="two"
-                app:spb_maxStateNumber="three"
-                app:spb_stateBackgroundColor="@color/lightgray"
-                app:spb_stateForegroundColor="@color/colorPrimary"
-                app:spb_stateNumberBackgroundColor="@color/gray"
-                app:spb_stateNumberForegroundColor="#eeeeee"
-                app:spb_currentStateDescriptionColor="@color/colorPrimary"
-                app:spb_stateDescriptionColor="@color/gray"
                 app:spb_animateToCurrentProgressState="true"
                 app:spb_checkStateCompleted="true"
-                app:spb_descriptionLinesSpacing="2sp"/>
+                app:spb_currentStateDescriptionColor="@color/colorPrimary"
+                app:spb_currentStateNumber="two"
+                app:spb_descriptionLinesSpacing="2sp"
+                app:spb_maxStateNumber="three"
+                app:spb_stateBackgroundColor="@color/lightgray"
+                app:spb_stateDescriptionColor="@color/gray"
+                app:spb_stateForegroundColor="@color/colorPrimary"
+                app:spb_stateNumberBackgroundColor="@color/gray"
+                app:spb_stateNumberForegroundColor="#eeeeee" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dados do Responsável"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
-                android:textAlignment="center"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Todos os campos abaixos são obrigatórios"
-                android:textSize="14sp"
+                android:textAlignment="center"
                 android:textColor="@color/gray"
-                android:textAlignment="center"/>
+                android:textSize="14sp" />
 
 
             <android.support.constraint.ConstraintLayout
@@ -56,21 +57,21 @@
                 android:layout_gravity="center_horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imagemPerfil"
+                    android:id="@+id/imageProfile"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:src="@drawable/ic_male"
+                    android:src="@drawable/ic_responsavel"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/adicionarFoto"
+                    android:id="@+id/button"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="120dp"
@@ -87,7 +88,7 @@
             </android.support.constraint.ConstraintLayout>
 
             <EditText
-                android:id="@+id/nome"
+                android:id="@+id/textNome"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="20dp"
@@ -155,8 +156,8 @@
                 android:id="@+id/sexoGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:orientation="horizontal">
 
@@ -187,18 +188,41 @@
                     android:textSize="18sp" />
             </RadioGroup>
 
-
-            <Button
-                android:id="@+id/continuar"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_primary"
-                android:text="Continuar"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/buttonVoltar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/button_option"
+                    android:elevation="4dp"
+                    android:text="Voltar"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/white" />
+
+                <Button
+                    android:id="@+id/buttonContinuar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/button_primary"
+                    android:elevation="4dp"
+                    android:text="Continuar"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
 
         </LinearLayout>
 
