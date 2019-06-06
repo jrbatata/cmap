@@ -105,7 +105,7 @@
                 tools:targetApi="o" />
 
             <EditText
-                android:id="@+id/cpf"
+                android:id="@+id/textCpf"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="20dp"
@@ -170,7 +170,7 @@
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/masculino"
+                    android:id="@+id/radioMasculino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/colorPrimary"
@@ -179,7 +179,7 @@
                     android:textSize="18sp" />
 
                 <RadioButton
-                    android:id="@+id/feminino"
+                    android:id="@+id/radioFeminino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

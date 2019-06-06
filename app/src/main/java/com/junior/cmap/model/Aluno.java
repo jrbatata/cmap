@@ -4,6 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.junior.cmap.config.ConfiguracaoFirebase;
 
 public class Aluno {
+    private String cpfResponsavel;
     private String nomeCompleto;
     private String matricula;
     private String dataNasc;
@@ -11,7 +12,7 @@ public class Aluno {
     private String sexo;
     private DatabaseReference reference = ConfiguracaoFirebase.getFirebase().child("aluno");
 
-    public Aluno() {
+    public Aluno(){
     }
 
     public DatabaseReference getReference() {
@@ -64,5 +65,13 @@ public class Aluno {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public String getCpfResponsavel() {
+        return cpfResponsavel;
+    }
+
+    public void setCpfResponsavel(String cpfResponsavel) {
+        this.cpfResponsavel = cpfResponsavel;
     }
 }

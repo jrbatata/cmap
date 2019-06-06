@@ -18,9 +18,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.junior.cmap.R;
 import com.junior.cmap.activity.MenuActivity;
 import com.junior.cmap.config.ConfiguracaoFirebase;
+import com.junior.cmap.model.Usuario;
 import com.junior.cmap.model.ViewDialog;
 
 /**
@@ -35,6 +39,7 @@ public class UsuarioFragment extends Fragment{
     private FirebaseAuth auth = ConfiguracaoFirebase.getFireBaseAuth();
     private ViewDialog viewDialog;
     private String strStatus = "";
+    private Usuario usuario;
 
     public UsuarioFragment() {
         // Required empty public constructor
@@ -74,8 +79,8 @@ public class UsuarioFragment extends Fragment{
         buttonFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String strEmail = textEmail.getText().toString();
-                String strSenha = textSenha.getText().toString();
+                final String strEmail = textEmail.getText().toString();
+                final String strSenha = textSenha.getText().toString();
                 String strConfirmarSenha = textConfirmar.getText().toString();
 
                 if(!strEmail.isEmpty() && !strSenha.isEmpty() && !strConfirmarSenha.isEmpty()) {
@@ -88,6 +93,11 @@ public class UsuarioFragment extends Fragment{
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     viewDialog.hideDialog();
                                     if (task.isSuccessful()) {
+                                        usuario = new Usuario(auth.getCurrentUser().getUid());
+                                        usuario.setEmail(strEmail);
+                                        usuario.setSenha(strSenha);
+                                        usuario.getReference().child(usuario.getId()).setValue(usuario);
+
                                         strStatus = "Cadastro realizado com sucesso!";
                                         Intent intent = new Intent(getActivity(), MenuActivity.class);
                                         startActivity(intent);

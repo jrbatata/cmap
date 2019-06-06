@@ -104,7 +104,6 @@ public class AlunoFragment extends Fragment {
                                         boolean alunoMatriculado = false;
                                         for(DataSnapshot ds: dataSnapshot.getChildren()){
                                             Aluno al = ds.getValue(Aluno.class);
-                                            Log.i("ALUNOO","Matrícula informada: " + aluno.getMatricula() + " | Matrícula encontrada no sistema: " + al.getMatricula());
                                             if(aluno.getMatricula().equals(al.getMatricula())){
                                                 alunoMatriculado = true;
                                             }
