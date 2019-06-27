@@ -18,14 +18,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 import com.junior.cmap.R;
-import com.junior.cmap.activity.MenuActivity;
+import com.junior.cmap.activity.PrincipalActivity;
 import com.junior.cmap.config.ConfiguracaoFirebase;
 import com.junior.cmap.model.Usuario;
 import com.junior.cmap.model.ViewDialog;
+
+import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -93,13 +92,16 @@ public class UsuarioFragment extends Fragment{
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     viewDialog.hideDialog();
                                     if (task.isSuccessful()) {
-                                        usuario = new Usuario(auth.getCurrentUser().getUid());
+                                        UUID uuid = UUID.randomUUID();
+                                        String userId = uuid.toString();
+
+                                        usuario = new Usuario(userId);
                                         usuario.setEmail(strEmail);
                                         usuario.setSenha(strSenha);
                                         usuario.getReference().child(usuario.getId()).setValue(usuario);
 
                                         strStatus = "Cadastro realizado com sucesso!";
-                                        Intent intent = new Intent(getActivity(), MenuActivity.class);
+                                        Intent intent = new Intent(getActivity(), PrincipalActivity.class);
                                         startActivity(intent);
                                     } else {
                                         strStatus = "Erro: " + task.getException().getMessage();

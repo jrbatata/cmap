@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageRemetente"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_margin="14dp"
+            android:src="@drawable/ic_aluno" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textRemetente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Departamento"
+                    android:textSize="18dp"
+                    android:layout_weight="1"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:lines="1"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:clickable="false"
+                    android:background="@color/colorPrimary"
+                    android:text="Não lida"
+                    android:textColor="@android:color/white"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textNotificacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Mensagem de Notificação"
+                android:textSize="16dp"
+                android:maxHeight="60dp"
+                android:lines="2"
+                android:textColor="@color/gray" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

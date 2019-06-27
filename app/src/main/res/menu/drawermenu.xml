@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/caixaMensagens"
+        android:title="Caixa de Mensagens"
+        android:icon="@drawable/ic_caixa_mensagens"/>
+
+    <item
+        android:id="@+id/proximosEventos"
+        android:title="Próximos Eventos"
+        android:icon="@drawable/ic_proximos_eventos"/>
+
+    <item
+        android:id="@+id/calendarioAcademico"
+        android:title="Calendário Acadêmico"
+        android:icon="@drawable/ic_calendario_academico"/>
+
+    <item
+        android:id="@+id/forumPais"
+        android:title="Fórum de Pais"
+        android:icon="@drawable/ic_forum"/>
+
+    <item
+        android:id="@+id/boletim"
+        android:title="Boletim"
+        android:icon="@drawable/ic_boletim"/>
+
+    <item
+        android:id="@+id/frequencia"
+        android:title="Frequência"
+        android:icon="@drawable/ic_frequencia"/>
+
+    <item
+        android:id="@+id/documentos"
+        android:title="Documentos"
+        android:icon="@drawable/ic_documentos"/>
+
+
+</menu>

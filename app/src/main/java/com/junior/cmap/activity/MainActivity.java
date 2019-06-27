@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.junior.cmap.R;
+import com.junior.cmap.config.ConfiguracaoFirebase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
                 abrirTela(CadastroActivity.class);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser usuarioAtual = ConfiguracaoFirebase.getFireBaseAuth().getCurrentUser();
+        if (usuarioAtual != null){
+            abrirTela(PrincipalActivity.class);
+        }
     }
 
     public void abrirTela(Class tela){

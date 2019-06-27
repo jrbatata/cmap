@@ -7,6 +7,7 @@ public class Usuario {
     private String id;
     private String email;
     private String senha;
+    private String cpf;
     private DatabaseReference reference = ConfiguracaoFirebase.getFirebase().child("usuario");
 
     public Usuario() {
@@ -48,5 +49,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
