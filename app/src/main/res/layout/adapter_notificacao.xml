@@ -25,6 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -62,7 +63,7 @@
                 android:textSize="16dp"
                 android:maxHeight="60dp"
                 android:lines="2"
-                android:textColor="@color/gray" />
+                android:textColor="@android:color/black"/>
 
         </LinearLayout>
 
