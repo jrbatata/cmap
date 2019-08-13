@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.junior.cmap.R;
@@ -21,17 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
         getSupportActionBar().hide();
-        Button cadastro = (Button) findViewById(R.id.buttonRegister);
-        Button login = (Button) findViewById(R.id.buttonLogin);
-        login.setOnClickListener(new View.OnClickListener() {
+        TextView textCadastro = (TextView) findViewById(R.id.textRegistrar);
+        Button buttonLogin = (Button) findViewById(R.id.buttonLogin);
+
+        textCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirTela(LoginActivity.class);
-            }
-        });
-        cadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
                 abrirTela(CadastroActivity.class);
             }
         });

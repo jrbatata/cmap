@@ -67,14 +67,6 @@ public class UsuarioFragment extends Fragment{
         checkTermos = (CheckBox) view.findViewById(R.id.checkTermos);
         viewDialog = new ViewDialog(getActivity());
 
-        buttonVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment responsavel = ResponsavelFragment.newInstance();
-                trocaTela(responsavel);
-            }
-        });
-
         buttonFinalizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +90,6 @@ public class UsuarioFragment extends Fragment{
                                         usuario = new Usuario(userId);
                                         usuario.setEmail(strEmail);
                                         usuario.setSenha(strSenha);
-                                        usuario.getReference().child(usuario.getId()).setValue(usuario);
 
                                         strStatus = "Cadastro realizado com sucesso!";
                                         Intent intent = new Intent(getActivity(), PrincipalActivity.class);

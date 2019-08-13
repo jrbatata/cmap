@@ -5,34 +5,29 @@ import com.junior.cmap.config.ConfiguracaoFirebase;
 
 public class Aluno {
     private String cpfResponsavel;
-    private String nomeCompleto;
+    private String nome;
     private String matricula;
     private String dataNasc;
     private String nivelEscolar;
     private String sexo;
-    private DatabaseReference reference = ConfiguracaoFirebase.getFirebase().child("aluno");
 
     public Aluno(){
     }
 
-    public DatabaseReference getReference() {
-        return reference;
-    }
-
     public Aluno(String nomeCompleto, String matricula, String dataNasc, String nivelEscolar, String sexo) {
-        this.nomeCompleto = nomeCompleto;
+        this.nome = nomeCompleto;
         this.matricula = matricula;
         this.dataNasc = dataNasc;
         this.nivelEscolar = nivelEscolar;
         this.sexo = sexo;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setNome(String nomeCompleto) {
+        this.nome = nomeCompleto;
     }
 
     public String getMatricula() {
@@ -74,4 +69,6 @@ public class Aluno {
     public void setCpfResponsavel(String cpfResponsavel) {
         this.cpfResponsavel = cpfResponsavel;
     }
+
+
 }

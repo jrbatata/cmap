@@ -3,14 +3,7 @@ package com.junior.cmap.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
@@ -21,30 +14,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 import com.junior.cmap.R;
 import com.junior.cmap.config.ConfiguracaoFirebase;
-import com.junior.cmap.config.NotificacoesAdapter;
 import com.junior.cmap.fragments.BoletimFragment;
 import com.junior.cmap.fragments.CalendarioFragment;
 import com.junior.cmap.fragments.DocumentosFragment;
 import com.junior.cmap.fragments.MensagensFragment;
-import com.junior.cmap.model.Notificacao;
-import com.junior.cmap.model.Responsavel;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Responsavel responsavel;
     private FrameLayout frameLayout;
     private Context context;
 
@@ -69,24 +50,7 @@ public class PrincipalActivity extends AppCompatActivity
 
     public void init() {
         getSupportActionBar().setTitle("Caixa de Mensagens");
-
-        responsavel = new Responsavel();
         context = this;
-
-        responsavel.getReference().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds: dataSnapshot.getChildren()){
-                    Responsavel rs = ds.getValue(Responsavel.class);
-                    Toast.makeText(PrincipalActivity.this, "Bem-vindo de volta, " + rs.getNomeCompleto()+ "!", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         MensagensFragment mensagensFragment = new MensagensFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
