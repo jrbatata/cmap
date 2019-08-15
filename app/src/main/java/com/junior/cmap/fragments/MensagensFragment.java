@@ -15,8 +15,10 @@ import android.widget.LinearLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.junior.cmap.R;
+import com.junior.cmap.config.ConfiguracaoFirebase;
 import com.junior.cmap.config.NotificacoesAdapter;
 import com.junior.cmap.model.Notificacao;
 
@@ -29,6 +31,7 @@ public class MensagensFragment extends Fragment {
     private NotificacoesAdapter adapter;
     private List<Notificacao> notificacoes;
     private Context context;
+    private DatabaseReference mensagensReference = ConfiguracaoFirebase.getFirebase().child("cmap/notificacoes");
 
     public MensagensFragment() {
         // Required empty public constructor
@@ -50,7 +53,7 @@ public class MensagensFragment extends Fragment {
         recyclerMensagens = (RecyclerView) view.findViewById(R.id.recyclerMensagens);
 
         Notificacao notificacao = new Notificacao();
-        notificacao.getReference().addValueEventListener(new ValueEventListener() {
+        mensagensReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Notificacao> not = new ArrayList<>();

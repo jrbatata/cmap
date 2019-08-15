@@ -39,8 +39,8 @@ public class NotificacoesAdapter extends RecyclerView.Adapter<NotificacoesAdapte
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
         Notificacao notificacao = notificacoes.get(i);
-        myViewHolder.textRemetente.setText(notificacoes.get(i).getDepartamento());
-        myViewHolder.textNotificacao.setText(notificacoes.get(i).getConteudo());
+        myViewHolder.textRemetente.setText(notificacoes.get(i).getTitulo());
+        myViewHolder.textNotificacao.setText(notificacoes.get(i).getDescricao());
         myViewHolder.imageRemetente.setImageResource(R.drawable.ic_daic);
     }
 

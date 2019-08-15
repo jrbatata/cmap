@@ -148,6 +148,7 @@ public class CadastroActivity extends AppCompatActivity {
                                         usuario.setNomeCompleto(textNome.getText().toString());
                                         usuario.setEmail(textEmail.getText().toString());
                                         usuario.setCpf(textCpf.getText().toString());
+                                        usuario.setSenha(textSenha.getText().toString());
 
                                         //Registra usuário no FirebaseAuth
                                         firebaseAuth.createUserWithEmailAndPassword(usuario.getEmail(), usuario.getSenha())
@@ -160,18 +161,35 @@ public class CadastroActivity extends AppCompatActivity {
                                                             usuario.setId(uid);
                                                             usuariosReference.child(usuario.getId()).setValue(usuario);
                                                             Toast.makeText(CadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                                                            Log.i("CadastroUsuario", "Id: " + usuario.getId());
-                                                            Log.i("CadastroUsuario", "Nome: " + usuario.getNomeCompleto());
+
+                                                            Intent intent = new Intent(CadastroActivity.this, PrincipalActivity.class);
+                                                            startActivity(intent);
                                                         }
                                                     }
                                                 });
+                                    }else{
+                                        Toast.makeText(this, "Erro: Você precisa estar de acordo com os termos de uso", Toast.LENGTH_SHORT).show();
                                     }
+                                }else{
+                                    Toast.makeText(this, "Erro: As senhas não coincidem", Toast.LENGTH_SHORT).show();
                                 }
+                            }else{
+                                Toast.makeText(this, "Erro: Você deve preencher com sua senha para acessar o Portal", Toast.LENGTH_SHORT).show();
                             }
+                        }else{
+                            Toast.makeText(this, "Erro: Você deve selecionar um grau de parentesco", Toast.LENGTH_SHORT).show();
                         }
+                    }else{
+                        Toast.makeText(this, "Erro: O CPF informado não correspondem ao do responsável do aluno", Toast.LENGTH_SHORT).show();
                     }
+                }else{
+                    Toast.makeText(this, "Erro: CPF não inserido ou inválido", Toast.LENGTH_SHORT).show();
                 }
+            }else{
+                Toast.makeText(this, "Erro: Você deve preencher com o seu email para acessar o Portal", Toast.LENGTH_SHORT).show();
             }
+        }else{
+            Toast.makeText(this, "Erro: Você deve preencher o seu nome", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -41,9 +41,10 @@ public class SelecionarAlunoActivity extends AppCompatActivity {
     }
 
     public void init(){
-        //Inicializa
+        //Inicializa componentes
         searchViewPesquisa = findViewById(R.id.searchViewPesquisa);
         recyclerViewAlunos = findViewById(R.id.recyclerViewAlunos);
+        getSupportActionBar().setTitle("Selecionar Aluno");
 
         //Inicializa o List
         listaAlunos = new ArrayList<>();
