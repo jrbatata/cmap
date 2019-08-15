@@ -1,18 +1,15 @@
-package com.junior.cmap.fragments.register;
+package com.junior.cmap.activity;
 
-
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,44 +17,67 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.junior.cmap.R;
+import com.junior.cmap.adapter.AdapterPesquisa;
 import com.junior.cmap.config.ConfiguracaoFirebase;
+import com.junior.cmap.config.RecyclerItemClickListener;
 import com.junior.cmap.model.Aluno;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlunoFragment extends Fragment {
+public class SelecionarAlunoActivity extends AppCompatActivity {
 
     private SearchView searchViewPesquisa;
     private RecyclerView recyclerViewAlunos;
     private List<Aluno> listaAlunos;
     private DatabaseReference alunosRef;
-
-    public AlunoFragment() {
-        // Required empty public constructor
-    }
-
-    public static AlunoFragment newInstance(){
-        return new AlunoFragment();
-    }
+    private AdapterPesquisa adapterPesquisa;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_aluno, container, false);
-        init(view);
-        return view;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_selecionar_aluno);
+        init();
     }
 
-    public void init(View view){
+    public void init(){
         //Inicializa
-        searchViewPesquisa = view.findViewById(R.id.searchViewPesquisa);
-        recyclerViewAlunos = view.findViewById(R.id.recyclerViewAlunos);
+        searchViewPesquisa = findViewById(R.id.searchViewPesquisa);
+        recyclerViewAlunos = findViewById(R.id.recyclerViewAlunos);
 
         //Inicializa o List
         listaAlunos = new ArrayList<>();
         alunosRef = ConfiguracaoFirebase.getFirebase().child("sigaa/alunos");
+
+        //Configura RecyclerView
+        recyclerViewAlunos.setHasFixedSize(false);
+        recyclerViewAlunos.setLayoutManager(new LinearLayoutManager(this));
+
+        //Configura Adapter
+        adapterPesquisa = new AdapterPesquisa(listaAlunos, this);
+        recyclerViewAlunos.setAdapter(adapterPesquisa);
+        recyclerViewAlunos.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+
+        //Configura evento de clique
+        recyclerViewAlunos.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerViewAlunos, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Aluno alunoSelecionado = listaAlunos.get(position);
+                Intent intent = new Intent(SelecionarAlunoActivity.this, CadastroActivity.class);
+                intent.putExtra("alunoSelecionado", alunoSelecionado);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        }));
 
         //Configura SearchView
         searchViewPesquisa.setQueryHint("Buscar pelo nome");
@@ -74,17 +94,6 @@ public class AlunoFragment extends Fragment {
                 return true;
             }
         });
-    }
-
-    public void trocaTela(Fragment fragment) {
-        //Declaração e inicialização da transação
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        //Substitui o fragment colocado dentro do container
-        transaction.replace(R.id.container, fragment);
-        //Adiciona a transação na pilha
-        transaction.addToBackStack(null);
-        //Fecha a transação
-        transaction.commit();
     }
 
     public void pesquisarAlunos(String texto){
@@ -104,8 +113,7 @@ public class AlunoFragment extends Fragment {
                         listaAlunos.add(ds.getValue(Aluno.class));
                     }
 
-                    /* int total = listaAlunos.size();
-                    Log.d("listaAlunos", "total: " + total);*/
+                    adapterPesquisa.notifyDataSetChanged();
                 }
 
                 @Override
@@ -115,5 +123,4 @@ public class AlunoFragment extends Fragment {
             });
         }
     }
-
 }

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         textCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirTela(CadastroActivity.class);
+                abrirTela(SelecionarAlunoActivity.class);
             }
         });
     }

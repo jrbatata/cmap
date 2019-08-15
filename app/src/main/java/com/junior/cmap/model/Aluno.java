@@ -3,7 +3,9 @@ package com.junior.cmap.model;
 import com.google.firebase.database.DatabaseReference;
 import com.junior.cmap.config.ConfiguracaoFirebase;
 
-public class Aluno {
+import java.io.Serializable;
+
+public class Aluno implements Serializable {
     private String cpfResponsavel;
     private String nome;
     private String matricula;

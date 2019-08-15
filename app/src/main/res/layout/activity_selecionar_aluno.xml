@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.register.AlunoFragment">
+    android:orientation="vertical"
+    tools:context=".activity.SelecionarAlunoActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 app:spb_currentStateNumber="one"
-                app:spb_maxStateNumber="three"
+                app:spb_maxStateNumber="two"
                 app:spb_stateBackgroundColor="@color/lightgray"
                 app:spb_stateForegroundColor="@color/colorPrimary"
                 app:spb_stateNumberBackgroundColor="@color/gray"
@@ -41,6 +42,16 @@
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
                 android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text="Utilize o campo de pesquisa abaixo para selecionar pelo nome do aluno"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,4 +91,4 @@
 
     </ScrollView>
 
-</FrameLayout>
+</LinearLayout>
