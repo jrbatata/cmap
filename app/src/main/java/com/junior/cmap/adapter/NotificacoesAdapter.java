@@ -1,4 +1,4 @@
-package com.junior.cmap.config;
+package com.junior.cmap.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,12 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.junior.cmap.R;
 import com.junior.cmap.model.Notificacao;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,9 +37,13 @@ public class NotificacoesAdapter extends RecyclerView.Adapter<NotificacoesAdapte
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
         Notificacao notificacao = notificacoes.get(i);
-        myViewHolder.textRemetente.setText(notificacoes.get(i).getTitulo());
-        myViewHolder.textNotificacao.setText(notificacoes.get(i).getDescricao());
-        myViewHolder.imageRemetente.setImageResource(R.drawable.ic_daic);
+        myViewHolder.textDepartamento.setText(notificacoes.get(i).getDepartamento());
+        myViewHolder.textDescricao.setText(notificacoes.get(i).getDescricao());
+        myViewHolder.imagemDepartamento.setImageResource(R.drawable.ic_daic);
+        if(!notificacao.isLida()){
+            myViewHolder.textNaoLida.setVisibility(View.VISIBLE);
+        }
+        myViewHolder.textData.setText(notificacao.getDataHora());
     }
 
     @Override
@@ -51,17 +53,20 @@ public class NotificacoesAdapter extends RecyclerView.Adapter<NotificacoesAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        CircleImageView imageRemetente;
-        TextView textRemetente;
-        TextView textNotificacao;
-        Button buttonRemetente;
+        CircleImageView imagemDepartamento;
+        TextView textDepartamento;
+        TextView textDescricao;
+        TextView textNaoLida;
+        TextView textData;
 
         public MyViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            imageRemetente = itemView.findViewById(R.id.imageRemetente);
-            textRemetente = itemView.findViewById(R.id.textRemetente);
-            textNotificacao = itemView.findViewById(R.id.textNotificacao);
+            imagemDepartamento = itemView.findViewById(R.id.imagemDepartamento);
+            textDepartamento = itemView.findViewById(R.id.textDepartamento);
+            textDescricao = itemView.findViewById(R.id.textDescricao);
+            textNaoLida = itemView.findViewById(R.id.textNaoLida);
+            textData = itemView.findViewById(R.id.textData);
 
         }
     }

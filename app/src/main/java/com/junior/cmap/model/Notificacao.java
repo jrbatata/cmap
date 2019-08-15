@@ -1,21 +1,15 @@
 package com.junior.cmap.model;
 
-import com.google.firebase.database.DatabaseReference;
-import com.junior.cmap.config.ConfiguracaoFirebase;
-
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Notificacao {
     private String id;
-    private String titulo;
+    private String departamento;
     private String descricao;
     private String servidorId;
-    private boolean publico;
-    private ArrayList<String> listDestinatarios;
-    private String horario;
-    private String data;
+    private String dataHora;
+    private String privacidade;
+    private boolean lida;
 
     public Notificacao() {
     }
@@ -28,12 +22,12 @@ public class Notificacao {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getDepartamento() {
+        return departamento;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
     public String getDescricao() {
@@ -52,35 +46,27 @@ public class Notificacao {
         this.servidorId = servidorId;
     }
 
-    public boolean isPublico() {
-        return publico;
+    public String getPrivacidade() {
+        return privacidade;
     }
 
-    public void setPublico(boolean publico) {
-        this.publico = publico;
+    public void setPrivacidade(String privacidade) {
+        this.privacidade = privacidade;
     }
 
-    public ArrayList<String> getListDestinatarios() {
-        return listDestinatarios;
+    public String getDataHora() {
+        return dataHora;
     }
 
-    public void setListDestinatarios(ArrayList<String> listDestinatarios) {
-        this.listDestinatarios = listDestinatarios;
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
     }
 
-    public String getHorario() {
-        return horario;
+    public boolean isLida() {
+        return lida;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
+    public void setLida(boolean lida) {
+        this.lida = lida;
     }
 }

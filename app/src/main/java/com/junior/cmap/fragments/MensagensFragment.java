@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.junior.cmap.R;
 import com.junior.cmap.config.ConfiguracaoFirebase;
-import com.junior.cmap.config.NotificacoesAdapter;
+import com.junior.cmap.adapter.NotificacoesAdapter;
 import com.junior.cmap.model.Notificacao;
 
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class MensagensFragment extends Fragment {
         recyclerMensagens = (RecyclerView) view.findViewById(R.id.recyclerMensagens);
 
         Notificacao notificacao = new Notificacao();
-        mensagensReference.addValueEventListener(new ValueEventListener() {
+        mensagensReference.orderByChild("dataHora").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Notificacao> not = new ArrayList<>();
@@ -61,7 +61,6 @@ public class MensagensFragment extends Fragment {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Notificacao notificacao = ds.getValue(Notificacao.class);
                     not.add(notificacao);
-
                 }
 
                 adapter = new NotificacoesAdapter(not, context);
