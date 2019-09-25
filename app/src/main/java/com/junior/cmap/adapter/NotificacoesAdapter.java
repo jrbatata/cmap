@@ -40,7 +40,9 @@ public class NotificacoesAdapter extends RecyclerView.Adapter<NotificacoesAdapte
         myViewHolder.textDepartamento.setText(notificacoes.get(i).getDepartamento());
         myViewHolder.textDescricao.setText(notificacoes.get(i).getDescricao());
         myViewHolder.imagemDepartamento.setImageResource(R.drawable.ic_daic);
-        if(!notificacao.isLida()){
+        if(notificacao.isLida()){
+            myViewHolder.textNaoLida.setVisibility(View.GONE);
+        }else{
             myViewHolder.textNaoLida.setVisibility(View.VISIBLE);
         }
         myViewHolder.textData.setText(notificacao.getDataHora());

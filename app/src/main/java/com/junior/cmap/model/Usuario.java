@@ -7,9 +7,10 @@ public class Usuario {
     private String cpf;
     private String dataNasc;
     private String senha;
-    private String grauParentesco;
-    private String sexo;
     private String matAluno;
+    private String urlFoto;
+    private String departamento;
+    private boolean adm;
 
     public Usuario() {
     }
@@ -18,6 +19,22 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.id = id;
+    }
+
+    public boolean isAdm() {
+        return adm;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
+
+    public void setAdm(boolean adm) {
+        this.adm = adm;
     }
 
     public Usuario(String id) {
@@ -34,6 +51,14 @@ public class Usuario {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 
     public void setEmail(String email) {
@@ -70,22 +95,6 @@ public class Usuario {
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
-    }
-
-    public String getGrauParentesco() {
-        return grauParentesco;
-    }
-
-    public void setGrauParentesco(String grauParentesco) {
-        this.grauParentesco = grauParentesco;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
     }
 
     public String getMatAluno() {

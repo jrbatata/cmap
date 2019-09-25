@@ -39,9 +39,10 @@ public class NotificacoesAdapter extends RecyclerView.Adapter<NotificacoesAdapte
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
         Notificacao notificacao = notificacoes.get(i);
-        myViewHolder.textRemetente.setText(notificacoes.get(i).getTitulo());
+        myViewHolder.textRemetente.setText(notificacoes.get(i).getDepartamento());
         myViewHolder.textNotificacao.setText(notificacoes.get(i).getDescricao());
         myViewHolder.imageRemetente.setImageResource(R.drawable.ic_daic);
+        myViewHolder.textData.setText(notificacoes.get(i).getDataHora());
     }
 
     @Override
@@ -54,15 +55,16 @@ public class NotificacoesAdapter extends RecyclerView.Adapter<NotificacoesAdapte
         CircleImageView imageRemetente;
         TextView textRemetente;
         TextView textNotificacao;
+        TextView textData;
         Button buttonRemetente;
 
         public MyViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            imageRemetente = itemView.findViewById(R.id.imageRemetente);
-            textRemetente = itemView.findViewById(R.id.textRemetente);
-            textNotificacao = itemView.findViewById(R.id.textNotificacao);
-
+            imageRemetente = itemView.findViewById(R.id.imagemDepartamento);
+            textRemetente = itemView.findViewById(R.id.textDepartamento);
+            textNotificacao = itemView.findViewById(R.id.textDescricao);
+            textData = itemView.findViewById(R.id.textData);
         }
     }
 }

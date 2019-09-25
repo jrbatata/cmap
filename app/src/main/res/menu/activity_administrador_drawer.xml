@@ -4,18 +4,13 @@
     tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/caixaMensagens"
-        android:title="Notificações"
+        android:id="@+id/notificacoesEnviadas"
+        android:title="Notificações Enviadas"
         android:icon="@drawable/ic_notifications_white_24dp"/>
 
     <item
         android:id="@+id/proximosEventos"
-        android:title="Próximos Eventos"
-        android:icon="@drawable/ic_proximos_eventos"/>
-
-    <item
-        android:id="@+id/calendarioAcademico"
-        android:title="Calendário Acadêmico"
+        android:title="Eventos"
         android:icon="@drawable/ic_calendario_academico"/>
 
     <item
@@ -24,23 +19,17 @@
         android:icon="@drawable/ic_forum"/>
 
     <item
-        android:id="@+id/boletim"
-        android:title="Boletim"
+        android:id="@+id/consultarAlunos"
+        android:title="Consultar Alunos"
         android:icon="@drawable/ic_boletim"/>
 
     <item
-        android:id="@+id/frequencia"
-        android:title="Frequência"
-        android:icon="@drawable/ic_frequencia"/>
-
-    <item
-        android:id="@+id/documentos"
-        android:title="Documentos"
+        android:id="@+id/gerarDocumentos"
+        android:title="Gerar Documentos"
         android:icon="@drawable/ic_documentos"/>
 
     <item
         android:id="@+id/menuSair"
         android:title="Sair"
         android:icon="@drawable/ic_exit_to_app_black_24dp"/>
-
 </menu>

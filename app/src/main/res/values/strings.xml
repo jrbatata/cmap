@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">CMAP</string>
-
     <array name="grau_parentesco">
         <item>Selecione o Grau de Parentesco</item>
         <item>Avó</item>
@@ -24,6 +22,8 @@
         <item>Integrado</item>
         <item>Médio</item>
     </array>
+
+    <string name="app_name">CMAP</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
