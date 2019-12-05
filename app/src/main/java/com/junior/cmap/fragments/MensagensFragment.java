@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,15 +32,12 @@ public class MensagensFragment extends Fragment {
 
     private RecyclerView recyclerMensagens;
     private NotificacoesAdapter adapter;
-    private List<Notificacao> notificacoes;
     private Context context;
     private Usuario usuario;
-    private DatabaseReference mensagensReference = ConfiguracaoFirebase.getFirebase().child("cmap/notificacoes");
 
     public MensagensFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,42 +50,15 @@ public class MensagensFragment extends Fragment {
 
     public void init(View view) {
         context = getContext();
-        notificacoes = new ArrayList<>();
+        usuario = new Usuario();
         recyclerMensagens = (RecyclerView) view.findViewById(R.id.recyclerMensagens);
+        final String uid = ConfiguracaoFirebase.getFireBaseAuth().getUid();
 
-        ConfiguracaoFirebase.getFirebase().child("cmap/usuarios/").addListenerForSingleValueEvent(new ValueEventListener() {
+        ConfiguracaoFirebase.getFirebase().child("cmap/usuarios/" + uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()){
-                    Usuario u = ds.getValue(Usuario.class);
-                    if(u.getId().equals(ConfiguracaoFirebase.getFireBaseAuth().getUid())){
-                        usuario = u;
-                        Log.i("SOFROSOFRO","u auth: " + ConfiguracaoFirebase.getFireBaseAuth().getUid());
-                        if(usuario.isAdm()){
-                            mensagensAdm();
-                        }else{
-                            mensagensReference.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    List<Notificacao> not = new ArrayList<>();
-                                    for(DataSnapshot ds : dataSnapshot.getChildren()){
-                                        Notificacao notificacao = ds.getValue(Notificacao.class);
-                                        if(notificacao.getPrivacidade().equals("Público")){
-                                            not.add(notificacao);
-                                        }
-                                    }
-
-                                    setAdapter(not);
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
-                        }
-                    }
-                }
+                usuario = dataSnapshot.getValue(Usuario.class);
+                carregarNotificacoes(usuario);
             }
 
             @Override
@@ -95,23 +66,61 @@ public class MensagensFragment extends Fragment {
 
             }
         });
+
+    }
+
+    private void carregarNotificacoes(Usuario usuario){
+        if(usuario != null){
+            if(usuario.isAdm()){
+                mensagensAdm();
+            }else{
+                ConfiguracaoFirebase.getFirebase().child("cmap/usuarios/" + usuario.getId() + "/notificacoes").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        List<Notificacao> notificacoes = new ArrayList<>();
+                        List<Notificacao> ordenados = new ArrayList<>();
+
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            Notificacao notificacao = ds.getValue(Notificacao.class);
+                            notificacoes.add(notificacao);
+                        }
+
+                        //ordena pelos mais recentes
+                        for(int i = notificacoes.size()-1; i > 0; i--){
+                            ordenados.add(notificacoes.get(i));
+                        }
+                        setAdapter(ordenados);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        }else{
+        }
     }
 
     private void mensagensAdm() {
-        mensagensReference.addValueEventListener(new ValueEventListener() {
+        ConfiguracaoFirebase.getFirebase().child("cmap/usuarios/" + usuario.getId() +"/notificacoes").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Notificacao> not = new ArrayList<>();
-                Log.i("SOFROSOFRO","u dp: " + usuario.getId());
-                Log.i("SOFROSOFRO","u dp: " + usuario.getNomeCompleto());
-                Log.i("SOFROSOFRO","u dp: " + usuario.getDepartamento());
+                List<Notificacao> ordenados = new ArrayList<>();
+
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Notificacao notificacao = ds.getValue(Notificacao.class);
-                    if(notificacao.getDepartamento().equals(usuario.getDepartamento())){
-                        not.add(notificacao);
-                    }
+                    not.add(notificacao);
+
                 }
-                setAdapter(not);
+
+                //ordena pelos mais recentes
+                for(int i = not.size()-1; i > 0; i--){
+                    ordenados.add(not.get(i));
+                }
+
+                setAdapter(ordenados);
             }
 
             @Override

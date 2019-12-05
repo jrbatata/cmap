@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Notificacao {
     private String id;
-    private String departamento;
+    private String titulo;
     private String descricao;
     private String servidorId;
     private String dataHora;
@@ -22,12 +22,12 @@ public class Notificacao {
         this.id = id;
     }
 
-    public String getDepartamento() {
-        return departamento;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescricao() {

@@ -4,6 +4,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/notificacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -18,14 +19,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:layout_marginRight="15dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textDepartamento"
@@ -33,50 +35,48 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans_bold"
                     android:text="Departamento"
-                    android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textAllCaps="true"
                     android:textSize="18sp"/>
 
                 <TextView
+                    android:id="@+id/textDescricao"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="Conteúdo da notificação"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
                     android:id="@+id/textNaoLida"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
+                    android:layout_marginBottom="6dp"
                     android:fontFamily="@font/opensans_semibold"
-                    android:layout_weight="2"
                     android:textAllCaps="true"
                     android:textSize="12sp"
                     android:text="Não lida"
                     android:textColor="@android:color/white"
                     android:background="@color/colorPrimary"
                     android:textAlignment="center"
-                    android:visibility="gone"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textDescricao"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/opensans_regular"
-                    android:text="Conteúdo da notificação"
-                    android:layout_weight="1"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"/>
+                    android:visibility="visible"/>
 
                 <TextView
                     android:id="@+id/textData"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/opensans_semibold"
                     android:text="XX/XX às 00:00"
-                    android:layout_weight="2"
                     android:textAllCaps="true"
                     android:textSize="12sp"
                     android:textAlignment="center"/>
