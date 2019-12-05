@@ -15,12 +15,13 @@
         <item>Tio</item>
     </array>
 
-    <array name="nivel">
-        <item>Selecione o Nível Escolar</item>
-        <item>Infantil</item>
-        <item>Fundamental</item>
-        <item>Integrado</item>
-        <item>Médio</item>
+    <array name="curso">
+        <item>Selecione o Curso</item>
+        <item>Informática</item>
+        <item>Química</item>
+        <item>Edificações</item>
+        <item>Mecânica</item>
+        <item>Eletrotécnica</item>
     </array>
 
     <string name="app_name">CMAP</string>

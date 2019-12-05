@@ -140,7 +140,7 @@ public class AdministradorActivity extends AppCompatActivity implements Navigati
         int id = item.getItemId();
 
         if(id == R.id.novaNotificacao){
-            Toast.makeText(context, "Nova Mensagem", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, EnviarNotificacaoActivity.class));
         }
 
         return super.onOptionsItemSelected(item);

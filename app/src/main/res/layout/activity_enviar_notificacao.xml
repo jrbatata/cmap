@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context=".activity.EnviarNotificacaoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioTodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Para todos"
+            android:checked="true"
+            android:buttonTint="@color/colorPrimary"/>
+
+        <RadioButton
+            android:id="@+id/radioCurso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Por curso"
+            android:buttonTint="@color/colorPrimary"/>
+
+        <RadioButton
+            android:id="@+id/radioEspecificar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Específico"
+            android:buttonTint="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/selecionarCurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Selecionar curso"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:visibility="gone"/>
+
+    <Spinner
+        android:id="@+id/spinCurso"
+        android:layout_marginTop="6dp"
+        android:layout_width="match_parent"
+        android:background="@color/lightgray"
+        android:layout_height="40dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/pesquisarEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Pesquisar por Email"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/textEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/lightgray"
+        android:ems="10"
+        android:hint="Email"
+        android:fontFamily="@font/opensans_regular"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/black"
+        tools:targetApi="o"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Título"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"/>
+
+    <EditText
+        android:id="@+id/textTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/lightgray"
+        android:ems="10"
+        android:hint="Título da Notificação"
+        android:fontFamily="@font/opensans_regular"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/black"
+        tools:targetApi="o" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Mensagem"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"/>
+
+    <EditText
+        android:id="@+id/textMensagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@color/lightgray"
+        android:ems="10"
+        android:maxLines="5"
+        android:minHeight="40dp"
+        android:hint="Mensagem"
+        android:fontFamily="@font/opensans_regular"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@android:color/black"
+        tools:targetApi="o" />
+
+    <Button
+        android:id="@+id/buttonEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/opensans_semibold"
+        android:background="@drawable/button_primary"
+        android:text="Enviar notificação"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
